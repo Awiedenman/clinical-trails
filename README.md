@@ -1,0 +1,1 @@
+This project is intended to spread information about clinical trails and give broader access of information to those dealing with ailments and their loved ones.
