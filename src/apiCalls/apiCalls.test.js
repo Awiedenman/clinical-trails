@@ -40,7 +40,7 @@ describe('apiCalls', () => {
     it('returns an error if the sttus is bad', async() => {
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
         status: 500
-      }))
+      }));
       const expected = Error('status failure: 500');
       const result = await searchDataCall('breast cancer');
 
