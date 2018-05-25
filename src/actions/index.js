@@ -1,6 +1,6 @@
-const populateSearchData = (searchData) => {
+export const populateSearchData = (searchData) => {
   return {
-    action: 'POPULATE_SEARCH_DATA',
+    type: 'POPULATE_SEARCH_DATA',
     searchData
   }
 }

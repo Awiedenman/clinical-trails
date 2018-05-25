@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
 import { searchDataCall } from '../apiCalls/apiCalls';
-// import { dispatch } from 'redux;'
+import { connect } from 'react-redux';
 import { populateSearchData } from '../actions/index';
 
 class App extends Component {  
-  constructor(props){
-    super(props);
-  }
 
   componentDidMount(){
-    const searchData = searchDataCall('breast cancer');
+    const searchData= searchDataCall('breast cancer');
+
+    console.log(searchData)
+    
     //clean data
     this.props.populateSearchData(searchData)
   }
@@ -32,4 +32,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default App;
+export default connect( null, mapDispatchToProps)(App);
