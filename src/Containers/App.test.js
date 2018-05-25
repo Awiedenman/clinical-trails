@@ -1,9 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { shallow } from 'enzyme';
+import { mapDispatchToProps, App } from './App';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+it('calls mapDispatchToProps with the correct argument', () => {
+  const mockDispatch = jest.fn;
+  const mappedProps = mapDispatchToProps( dispatch );
+
+  const mockAction = {
+    type: POPULATE_SEARCH_DATA,
+    searchData: [ Lupus ]
+  }
+
+  mappedProps.mapDispatchToProps( mocAction.searchData )
+
+  expect( dispatch ).toHaveBeenCalledWith(mockAction);
 });

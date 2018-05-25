@@ -2,14 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from '../src/Containers/App';
-import BrowserRouter from 'react-router';
-import { provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import { rootReducer } from './reducers/index';
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ &&
   window.__REDUX_DEVTOOLS_EXTENSION__();
 
 
-const store = createStore( rootReducer, DevTools)
+const store = createStore( rootReducer, devTools)
 
 const router = (
   <Provider store={ store }>
