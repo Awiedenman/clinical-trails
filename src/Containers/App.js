@@ -3,13 +3,15 @@ import './App.css';
 import { searchDataCall } from '../apiCalls/apiCalls';
 import { connect } from 'react-redux';
 import { populateSearchData } from '../actions/index';
+import { searchDataCleaner } from '../cleaner/cleaner';
 
 class App extends Component {  
 
   async componentDidMount (){
     const searchData = await searchDataCall('breast cancer');
-    console.log(searchData)
-    //clean data
+    const cleanData = searchDataCleaner(searchData.items);
+    console.log(cleanData)
+    // console.log(searchDataCleaner)
     this.props.populateSearchData(searchData)
   }
   render() {
