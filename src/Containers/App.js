@@ -9,10 +9,10 @@ class App extends Component {
 
   async componentDidMount (){
     const searchData = await searchDataCall('breast cancer');
-    const cleanData = searchDataCleaner(searchData.items);
+    const cleanSearchData = searchDataCleaner(searchData.items);
     console.log(cleanData)
     // console.log(searchDataCleaner)
-    this.props.populateSearchData(searchData)
+    this.props.populateSearchData(cleanSearchData)
   }
   render() {
     return (
@@ -28,7 +28,7 @@ class App extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    populateSearchData: (searchData) => dispatch(populateSearchData(searchData))
+    populateSearchData: (cleanSearchData) => dispatch(populateSearchData(cleanSearchData))
   }
 }
 
