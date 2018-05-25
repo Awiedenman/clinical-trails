@@ -6,11 +6,9 @@ import { populateSearchData } from '../actions/index';
 
 class App extends Component {  
 
-  componentDidMount(){
-    const searchData= searchDataCall('breast cancer');
-
+  async componentDidMount (){
+    const searchData = await searchDataCall('breast cancer');
     console.log(searchData)
-    
     //clean data
     this.props.populateSearchData(searchData)
   }
