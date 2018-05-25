@@ -1,8 +1,4 @@
-export const populateSearchData = (searchData) => {
-  console.log(searchData)
-  return {
+export const populateSearchData = (searchData) => ({
     type: 'POPULATE_SEARCH_DATA',
     searchData
-    
-  }
-}
+})
