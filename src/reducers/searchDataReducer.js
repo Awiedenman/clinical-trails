@@ -1,10 +1,12 @@
-const searchDataReducer = ( state = [], action ) => {
+export const searchDataReducer = ( state = [], action ) => {
   switch (action.type) {
     case 'POPULATE_SEARCH_DATA':
-      return state;
-      break;
+     return [ ...action.searchData ]
   
-    default: state
-      break;
+    default: 
+      return state
   }
-}
+
+  }
+
+  export default searchDataReducer;
