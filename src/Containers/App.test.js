@@ -3,16 +3,23 @@ import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import { mapDispatchToProps, App } from './App';
 
-it('calls mapDispatchToProps with the correct argument', () => {
-  const mockDispatch = jest.fn;
-  const mappedProps = mapDispatchToProps( dispatch );
+describe('mapDispatchToProps', () => {
 
-  const mockAction = {
-    type: POPULATE_SEARCH_DATA,
-    searchData: [ Lupus ]
-  }
+  it('mapDispatchToProps was called with the correct argument', () => {
+    const dispatch = jest.fn();
+    const mapProps = mapDispatchToProps(dispatch);
+    const mockData = {
+      sup: "dood"
+    }
+    const expected = {
+      type: 'POPULATE_SEARCH_DATA',
+      searchData: mockData
+    }
+  
+    mapProps.populateSearchData(mockData)
 
-  mappedProps.mapDispatchToProps( mocAction.searchData )
+    expect(dispatch).toHaveBeenCalledWith(expected);
+  })
+})
 
-  expect( dispatch ).toHaveBeenCalledWith(mockAction);
-});
+
