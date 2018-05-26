@@ -12,22 +12,26 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      searchCondtion: ''
+      searchCondition: ''
     }
   }
 
-  async componentDidMount (){
-    const searchData = await searchDataCall('breast cancer');
+  async componentDidMount() {
+    // const searchData = await searchDataCall(this.state.searchCondition);
+    // const cleanSearchData = searchDataCleaner(searchData.items);
+    // this.props.populateSearchData(cleanSearchData)
+  }
+
+  updateSearchCondition =  async (condition) => {
+    this.setState({ searchCondition: condition.condition })
+    console.log(condition.condition)
+    console.log(this.state.searchCondition)
+    const searchData = await searchDataCall(this.state.searchCondition);
     const cleanSearchData = searchDataCleaner(searchData.items);
+    console.log(cleanSearchData)
     this.props.populateSearchData(cleanSearchData)
   }
-
-  updateSearchCondition = (condition) => {
-    this.setState({ searchCondtion: condition.condition })
-
-  }
   
-
   render() {
     return (
       <div className="App">
