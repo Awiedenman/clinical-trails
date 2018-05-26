@@ -11,4 +11,24 @@ export class SearchForm extends Component {
     }
   }
 
+    handleChange = (e) => {
+      const { name, value } = e.target;
+      this.setState({ [name]: value })
+    }
+
+    passSearchCondition = (e) => {
+      e.preventDefault();
+      this.props.updateSearchCondition(this.state)
+    }
+
+    render(){
+      return(
+        <div>
+          <input onChange={ this.handleChange } placeholder='Condtion' name='condition' value={this.state.condtion} />
+          <input onChange={ this.handleChange } placeholder='Location' name='location' value={this.state.location}/>
+          <button onClick={ this.passSearchCondition } > Search</button>
+        </div>
+      )
+    }
+
 }
