@@ -3,14 +3,18 @@ import './App.css';
 import { searchDataCall } from '../apiCalls/apiCalls';
 import { connect } from 'react-redux';
 import { populateSearchData } from '../actions/index';
+import { searchDataCleaner } from '../cleaner/cleaner';
+
+//react-navigation
 
 class App extends Component {  
 
   async componentDidMount (){
     const searchData = await searchDataCall('breast cancer');
-    console.log(searchData)
-    //clean data
-    this.props.populateSearchData(searchData)
+    const cleanSearchData = searchDataCleaner(searchData.items);
+    console.log(cleanData)
+    // console.log(searchDataCleaner)
+    this.props.populateSearchData(cleanSearchData)
   }
   render() {
     return (
@@ -26,7 +30,7 @@ class App extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    populateSearchData: (searchData) => dispatch(populateSearchData(searchData))
+    populateSearchData: (cleanSearchData) => dispatch(populateSearchData(cleanSearchData))
   }
 }
 
