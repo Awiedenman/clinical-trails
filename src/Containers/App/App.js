@@ -9,19 +9,32 @@ import { SearchForm } from '../../Components/SearchForm/SearchForm';
 //react-navigation
 
 class App extends Component {  
+  constructor(props){
+    super(props);
+    this.state = {
+      searchCondtion: ''
+    }
+  }
 
   async componentDidMount (){
     const searchData = await searchDataCall('breast cancer');
     const cleanSearchData = searchDataCleaner(searchData.items);
-    // console.log(cleanData)
-    // console.log(searchDataCleaner)
     this.props.populateSearchData(cleanSearchData)
   }
+
+  updateSearchCondition = (condition) => {
+    this.setState({ searchCondtion: condition.condition })
+
+  }
+  
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-        <SearchForm />
+          <SearchForm 
+            updateSearchCondition={ this.updateSearchCondition }
+          />
         </header>
         <p className="App-intro">
         </p>
