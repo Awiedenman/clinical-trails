@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { populateSearchData } from '../actions/index';
 import { searchDataCleaner } from '../cleaner/cleaner';
 
+//react-navigation
+
 class App extends Component {  
 
   async componentDidMount (){
