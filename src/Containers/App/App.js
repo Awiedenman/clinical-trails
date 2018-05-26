@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import { searchDataCall } from '../apiCalls/apiCalls';
+import { searchDataCall } from '../../apiCalls/apiCalls';
 import { connect } from 'react-redux';
-import { populateSearchData } from '../actions/index';
-import { searchDataCleaner } from '../cleaner/cleaner';
+import { populateSearchData } from '../../actions/index';
+import { searchDataCleaner } from '../../cleaner/cleaner';
 
 //react-navigation
 
@@ -12,7 +12,7 @@ class App extends Component {
   async componentDidMount (){
     const searchData = await searchDataCall('breast cancer');
     const cleanSearchData = searchDataCleaner(searchData.items);
-    console.log(cleanData)
+    // console.log(cleanData)
     // console.log(searchDataCleaner)
     this.props.populateSearchData(cleanSearchData)
   }
