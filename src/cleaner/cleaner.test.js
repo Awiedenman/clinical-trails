@@ -11,12 +11,10 @@ describe('searchDataCleaner', () => {
           gender: "both",
           registration_date: "2017-05-24T00:00:00.000Z",
           locations: [{
-                id: "33a2251a-1a43-44ca-ac7d-f7e8d183d33d",
                 name: "Spain",
-                type: "country",
-                role: "recruitment_countries",
                 name: "Dr Joaquin Valdivia Tor"
-    }],
+             }]
+          }]
   })
 
 })

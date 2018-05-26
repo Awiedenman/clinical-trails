@@ -4,6 +4,7 @@ import { searchDataCall } from '../../apiCalls/apiCalls';
 import { connect } from 'react-redux';
 import { populateSearchData } from '../../actions/index';
 import { searchDataCleaner } from '../../cleaner/cleaner';
+import { SearchForm } from '../../Components/SearchForm/SearchForm';
 
 //react-navigation
 
@@ -20,6 +21,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+        <SearchForm />
         </header>
         <p className="App-intro">
         </p>
