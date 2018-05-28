@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { populateSearchData } from '../../actions/index';
 import { searchDataCleaner } from '../../cleaner/cleaner';
 import { SearchForm } from '../../Components/SearchForm/SearchForm';
+import CardContainer from '../CardContainer/CardContainer';
 
 //react-navigation
 
@@ -40,8 +41,7 @@ class App extends Component {
             updateSearchCondition={ this.updateSearchCondition }
           />
         </header>
-        <p className="App-intro">
-        </p>
+        <CardContainer />
       </div>
     );
   }
