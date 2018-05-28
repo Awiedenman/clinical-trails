@@ -12,7 +12,6 @@ class LogIn extends Component {
   render(){
     return(
       <div>
-        
       </div>
     )
   }
