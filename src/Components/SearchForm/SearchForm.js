@@ -24,9 +24,23 @@ export class SearchForm extends Component {
     render(){
       return(
         <div>
-          <input onChange={ this.handleChange } placeholder='Condtion' name='condition' value={this.state.condtion} />
-          <input onChange={ this.handleChange } placeholder='Location' name='location' value={this.state.location}/>
-          <button onClick={ this.passSearchCondition } > Search</button>
+          <input 
+            onChange={ this.handleChange } 
+            placeholder='Condtion' 
+            name='condition' 
+            value={this.state.condtion} 
+            required 
+          />
+          <input 
+            onChange={ this.handleChange } 
+            placeholder='Location' 
+            name='location' 
+            value={this.state.location}
+          />
+          <button 
+            onClick={ this.passSearchCondition }> 
+            Search
+          </button>
         </div>
       )
     }
