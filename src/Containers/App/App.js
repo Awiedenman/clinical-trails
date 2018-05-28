@@ -6,6 +6,8 @@ import { populateSearchData } from '../../actions/index';
 import { searchDataCleaner } from '../../cleaner/cleaner';
 import { SearchForm } from '../../Components/SearchForm/SearchForm';
 import CardContainer from '../CardContainer/CardContainer';
+import { Route } from 'react-router-dom';
+import { Header } from '../../Components/Header/Header';
 
 //react-navigation
 
@@ -36,11 +38,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <Header 
+          className="header"
+          />
+          <Route exact path="signup/login" component={SignUp/LogIn}/>
           <SearchForm 
             updateSearchCondition={ this.updateSearchCondition }
           />
-        </header>
         <CardContainer />
       </div>
     );
