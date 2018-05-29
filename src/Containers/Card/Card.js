@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './Card.css';
 
 
 export class Card extends Component {
@@ -14,7 +15,7 @@ export class Card extends Component {
     } = this.props;
 
     return(
-      <div>
+      <div className='card'>
         <h3>Trial Title: { public_title }</h3>
         <h3>Target Sample Size: { target_sample_size }</h3>
         <h3>Gender: { gender }</h3>
