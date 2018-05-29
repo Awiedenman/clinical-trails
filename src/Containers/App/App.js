@@ -42,13 +42,13 @@ class App extends Component {
       <div className="App">
         <Header 
           className="header"
-          />
-          <Route exact path="signup/login" component={SignUp/LogIn}/>
+        />
+        <Route exact path="signup/login" component={SignUp/LogIn}/>
+        <SearchForm 
+          updateSearchCondition={ this.updateSearchCondition }
+        />
         <CardContainer 
         />
-          <SearchForm 
-            updateSearchCondition={ this.updateSearchCondition }
-          />
       </div>
     );
   }
