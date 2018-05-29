@@ -1,6 +1,7 @@
 import React, {
   Component
 } from 'react';
+import './SearchForm.css';
 
 export class SearchForm extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ export class SearchForm extends Component {
 
     render(){
       return(
-        <div>
+        <form>
           <input 
             onChange={ this.handleChange } 
             placeholder='Condtion' 
@@ -41,7 +42,7 @@ export class SearchForm extends Component {
             onClick={ this.passSearchCondition }> 
             Search
           </button>
-        </div>
+        </form>
       )
     }
 

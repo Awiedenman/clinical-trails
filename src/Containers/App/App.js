@@ -44,10 +44,11 @@ class App extends Component {
           className="header"
           />
           <Route exact path="signup/login" component={SignUp/LogIn}/>
+        <CardContainer 
+        />
           <SearchForm 
             updateSearchCondition={ this.updateSearchCondition }
           />
-        <CardContainer />
       </div>
     );
   }
