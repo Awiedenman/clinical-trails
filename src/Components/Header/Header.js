@@ -7,7 +7,7 @@ export const Header = () => {
   return(
     <header>
       <h1>Clinical Trials</h1>
-      <NavLink to='signup/login'> SignUp/ LogIn</NavLink>
+      <NavLink className='navlink' to='signup/login'> SignUp/ LogIn</NavLink>
     </header>
   )
 }

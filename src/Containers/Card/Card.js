@@ -16,6 +16,7 @@ export class Card extends Component {
 
     return(
       <div className='card'>
+        <a className="save-card">Save Trail Info</a>
         <h3>Trial Title: { public_title }</h3>
         <h3>Target Sample Size: { target_sample_size }</h3>
         <h3>Gender: { gender }</h3>
