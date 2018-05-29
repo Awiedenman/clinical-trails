@@ -8,6 +8,8 @@ import { SearchForm } from '../../Components/SearchForm/SearchForm';
 import CardContainer from '../CardContainer/CardContainer';
 import { Route } from 'react-router-dom';
 import { Header } from '../../Components/Header/Header';
+import SignUp from '../SignUp/SignUp';
+import LogIn from '../LogIn/Login';
 
 //react-navigation
 

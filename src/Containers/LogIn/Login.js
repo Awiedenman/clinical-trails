@@ -16,3 +16,4 @@ class LogIn extends Component {
     )
   }
 }
+export default LogIn;
