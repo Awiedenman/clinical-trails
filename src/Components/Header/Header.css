@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+}
+
+header {
+  height: 162px;
+  background-color: #61a6f0;
+}
+
+h1 {
+  left: 20px;
+  position: relative;
+  top: 65px;
+  color: #fff;
+  font-size: 70px;
+  text-align: left;
+}
+
+.navlink {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: #fff;
+  text-decoration: none;
+  
+}
+
+.navlink:hover {
+  color: #ff5f58;
+  
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Card } from '../../Containers/Card/Card';
+import './CardContainer.css';
 
 const CardContainer =({ searchData }) => {
   const createCards = searchData.map(( trial,index) => {
@@ -13,7 +14,7 @@ const CardContainer =({ searchData }) => {
   })
 
   return(
-    <div>{ createCards }</div>
+    <main>{ createCards }</main>
   )
 }
 

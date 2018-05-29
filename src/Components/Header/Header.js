@@ -1,12 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import './Header.css'
 
 export const Header = () => {
 
   return(
-    <div>
+    <header>
       <h1>Clinical Trials</h1>
-      <NavLink to='signup/login'> SignUp/ LogIn</NavLink>
-    </div>
+      <NavLink className='navlink' to='signup/login'> SignUp/ LogIn</NavLink>
+    </header>
   )
 }

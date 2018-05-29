@@ -8,6 +8,8 @@ import { SearchForm } from '../../Components/SearchForm/SearchForm';
 import CardContainer from '../CardContainer/CardContainer';
 import { Route } from 'react-router-dom';
 import { Header } from '../../Components/Header/Header';
+import SignUp from '../SignUp/SignUp';
+import LogIn from '../LogIn/Login';
 
 //react-navigation
 
@@ -40,12 +42,13 @@ class App extends Component {
       <div className="App">
         <Header 
           className="header"
-          />
-          <Route exact path="signup/login" component={SignUp/LogIn}/>
-          <SearchForm 
-            updateSearchCondition={ this.updateSearchCondition }
-          />
-        <CardContainer />
+        />
+        <Route exact path="signup/login" component={SignUp/LogIn}/>
+        <SearchForm 
+          updateSearchCondition={ this.updateSearchCondition }
+        />
+        <CardContainer 
+        />
       </div>
     );
   }
