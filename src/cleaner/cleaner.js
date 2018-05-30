@@ -4,42 +4,43 @@ export const searchDataCleaner = (searchData) => {
         public_title: trial.public_title,
         target_sample_size: trial.target_sample_size,
         gender: trial.gender,
-        registration_date: "2017-05-24T00:00:00.000Z",
-        locations: locationInfo(trial),
-        persons: personInfo(trial),
-        oraganisations: organisationInfo(trial),
-        condtions: conditionInfo(trial)
+        registration_date: trial.registration_date,
+        completion_date: trial.completion_date ? trial.completion_date : 'Completion date not included.',
+        locations: locationsInfo(trial),
+        persons: personsInfo(trial),
+        oraganisations: organisationsInfo(trial),
+        condtions: conditionsInfo(trial)
 
       }
     })
   };
     
-    export const locationInfo = ( trial ) => trial.locations.reduce((locationInfo, location) => {
+    export const locationsInfo = ( trial ) => trial.locations.reduce((locationsInfo, location) => {
      // console.log( location )
-     locationInfo['name'] = location.name ? location.name : 'No location provided.'
+     locationsInfo['name'] = location.name ? location.name : 'No location provided.'
     //  locationInfo[location.country] = location.country
     //  locationInfo[location.recruitment_countries] = location.recruitment_countries
-     return locationInfo
+     return locationsInfo
    }, {})
     
-     export const personInfo = (trial) => trial.persons.reduce((personInfo, person) => {
-       personInfo['name'] = person.name,
-       personInfo['role'] = person.role ? person.role : "no role defined."
+     export const personsInfo = (trial) => trial.persons.reduce((personsInfo, person) => {
+       personsInfo['name'] = person.name,
+       personsInfo['role'] = person.role ? person.role : "no role defined."
        console.log(person.role)
       console.log(person.name)
-      return personInfo
+      return personsInfo
     }, {})
 
-    export const organisationInfo = (trial) => trial.organisations.reduce((organisationInfo, organisation) => {
-      organisationInfo['name'] = organisation.name,
+    export const organisationsInfo = (trial) => trial.organisations.reduce((organisationsInfo, organisation) => {
+      organisationsInfo['name'] = organisation.name,
       //what if there is multiple organisations?
-      organisationInfo['role'] = organisation.role
-      return organisationInfo
+      organisationsInfo['role'] = organisation.role
+      return organisationsInfo
     }, {})
 
-    export const conditionInfo= (trial) => trial.conditions.reduce((conditionInfo, condition) => {
-      conditionInfo['name'] = condition.name
-      return conditionInfo
+    export const conditionsInfo= (trial) => trial.conditions.reduce((conditionsInfo, condition) => {
+      conditionsInfo['name'] = condition.name
+      return conditionsInfo
     }, {})
 
 
