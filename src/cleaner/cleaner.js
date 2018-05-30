@@ -2,6 +2,7 @@ export const searchDataCleaner = (searchData) => {
   return searchData.map(trial => {
     return {
         public_title: trial.public_title,
+        interventions: interventionsCleaner(trial),
         target_sample_size: trial.target_sample_size,
         gender: trial.gender,
         registration_date: trial.registration_date,
@@ -11,7 +12,10 @@ export const searchDataCleaner = (searchData) => {
         locations: locationsInfo(trial),
         persons: personsInfo(trial),
         oraganisations: organisationsInfo(trial),
-        condtions: conditionsInfo(trial)
+        condtions: conditionsInfo(trial),
+        source_name: trial.source.name ? trial.source.name : 'No source name is available.',
+        source_url: recordsCleaner(trial)
+
 
       }
     })
@@ -44,6 +48,17 @@ export const searchDataCleaner = (searchData) => {
       conditionsInfo['name'] = condition.name
       return conditionsInfo
     }, {})
+
+    export const recordsCleaner = (trial) => trial.records.reduce((recordsInfo, record) => {
+      recordsInfo['source url'] = record.source_url ? record.source_url : 'No trial url available.'
+      return recordsInfo
+    }, {})
+
+    export const interventionsCleaner = (trial) => trial.interventions.reduce((interventionsInfo, intervention) => {
+      interventionsInfo['interventions'] = intervention.name ? intervention.name : 'No intervention info available.'
+      return interventionsInfo
+    }, {})
+    
 
 
 
