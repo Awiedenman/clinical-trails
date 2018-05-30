@@ -7,7 +7,8 @@ export const searchDataCleaner = (searchData) => {
         registration_date: "2017-05-24T00:00:00.000Z",
         locations: locationInfo(trial),
         persons: personInfo(trial),
-        oraganisation: organisationInfo(trial)
+        oraganisations: organisationInfo(trial),
+        condtions: conditionInfo(trial)
 
       }
     })
@@ -35,6 +36,13 @@ export const searchDataCleaner = (searchData) => {
       organisationInfo['role'] = organisation.role
       return organisationInfo
     }, {})
+
+    export const conditionInfo= (trial) => trial.conditions.reduce((conditionInfo, condition) => {
+      conditionInfo['name'] = condition.name
+      return conditionInfo
+    }, {})
+
+
 
 
 
