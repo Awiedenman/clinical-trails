@@ -22,6 +22,7 @@ export class Card extends Component {
         <h3>Gender: { gender }</h3>
         <h3>Registation Date:{ registration_date }</h3>
         {/* <h3>Location: { locations }</h3> */}
+        <button>▽</button>
       </div>
     )
   }
