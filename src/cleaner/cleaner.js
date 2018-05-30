@@ -3,6 +3,9 @@ export const searchDataCleaner = (searchData) => {
     return {
         public_title: trial.public_title,
         interventions: interventionsCleaner(trial),
+        brief_summary: trial.brief_summary,
+        // max_age: trial.age_range.max_age ? trial.age_range.max_age : 'No max age provided.',
+        // min_age: trial.age_range.min_age ? trial.age_range.min_age : 'No min age provided.',
         target_sample_size: trial.target_sample_size,
         gender: trial.gender,
         registration_date: trial.registration_date,
@@ -50,12 +53,15 @@ export const searchDataCleaner = (searchData) => {
     }, {})
 
     export const recordsCleaner = (trial) => trial.records.reduce((recordsInfo, record) => {
-      recordsInfo['source url'] = record.source_url ? record.source_url : 'No trial url available.'
+      recordsInfo['source url'] = record.source_url ? record.source_url : 'No trial url available.',
+      recordsInfo['terms and conditions'] = trial.terms_and_conditions_url ? trial.terms_and_conditions_url : 'No terms and conditions available.'
       return recordsInfo
     }, {})
 
     export const interventionsCleaner = (trial) => trial.interventions.reduce((interventionsInfo, intervention) => {
+      console.log( intervention )
       interventionsInfo['interventions'] = intervention.name ? intervention.name : 'No intervention info available.'
+    //   //what if ther are multiple intervations.
       return interventionsInfo
     }, {})
     
