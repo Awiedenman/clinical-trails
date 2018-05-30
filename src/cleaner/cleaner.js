@@ -6,26 +6,37 @@ export const searchDataCleaner = (searchData) => {
         gender: trial.gender,
         registration_date: "2017-05-24T00:00:00.000Z",
         locations: locationInfo(trial),
-        persons: personInfo(trial)
+        persons: personInfo(trial),
+        oraganisation: organisationInfo(trial)
+
       }
     })
   };
     
-    const locationInfo = ( trial ) => trial.locations.reduce((locationInfo, location) => {
+    export const locationInfo = ( trial ) => trial.locations.reduce((locationInfo, location) => {
      // console.log( location )
-     locationInfo['name'] = location.name
-     locationInfo[location.country] = location.country
-     locationInfo[location.recruitment_countries] = location.recruitment_countries
+     locationInfo['name'] = location.name ? location.name : 'No location provided.'
+    //  locationInfo[location.country] = location.country
+    //  locationInfo[location.recruitment_countries] = location.recruitment_countries
      return locationInfo
    }, {})
     
-     const personInfo = (trial) => trial.persons.reduce((personInfo, person) => {
+     export const personInfo = (trial) => trial.persons.reduce((personInfo, person) => {
        personInfo['name'] = person.name,
-       personInfo['role'] = person.role ? person.role : "no role defined"
+       personInfo['role'] = person.role ? person.role : "no role defined."
        console.log(person.role)
       console.log(person.name)
       return personInfo
     }, {})
+
+    export const organisationInfo = (trial) => trial.organisations.reduce((organisationInfo, organisation) => {
+      organisationInfo['name'] = organisation.name,
+      //what if there is multiple organisations?
+      organisationInfo['role'] = organisation.role
+      return organisationInfo
+    }, {})
+
+
 
 // console.log('trials',trial.public_title)
 // export const locationInfo = trial.locations.map(location => ({
