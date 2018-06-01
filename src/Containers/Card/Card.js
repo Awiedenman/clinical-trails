@@ -44,7 +44,7 @@ export class Card extends Component {
         <h3>organisation's name: { organisations.name }</h3> 
         <h3>organisation's role: { organisations.role }</h3>
         <h3>Source name: { organisations.name }</h3> 
-        <h3>Source url: { source_info.source_url }</h3>
+        <h3>Source url:<a href ={ source_info.source_url }>{ source_info.source_url }</a></h3>
         <h3>Terms and Conditions: { source_info.terms_and_conditions }</h3>
 
 
