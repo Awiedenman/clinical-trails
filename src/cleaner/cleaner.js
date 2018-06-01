@@ -1,11 +1,12 @@
 export const searchDataCleaner = (searchData) => {
   return searchData.map(trial => {
     return {
-        condtions: conditionsInfo(trial),
+        conditions: conditionsInfo(trial),
         public_title: trial.public_title,
         brief_summary: trial.brief_summary,
         interventions: interventionsCleaner(trial),
         age_range: trial.age_range ? trial.age_range: 'No max age provided.',
+        // min_age_range: trial.age_range.min_age ? trial.age_range.min_age : 'No min age provided.',
         gender: trial.gender,
         target_sample_size: trial.target_sample_size,
         registration_date: trial.registration_date,
@@ -14,11 +15,9 @@ export const searchDataCleaner = (searchData) => {
         recruitment_status: trial.recruitment_status ? trial.recruitment_status : 'Recruitment status not available.',
         locations: locationsInfo(trial),
         persons: personsInfo(trial),
-        oraganisations: organisationsInfo(trial),
+        organisations: organisationsInfo(trial),
         source_name: trial.source.name ? trial.source.name : 'No source name is available.',
-        source_url: recordsCleaner(trial)
-
-
+        source_info: recordsCleaner(trial)
       }
     })
   };
@@ -31,6 +30,10 @@ export const searchDataCleaner = (searchData) => {
      return locationsInfo
    }, {})
     
+    // export const personsInfo = (trial) => trial.persons.map( person => {
+    //   return person.name
+    // })
+
      export const personsInfo = (trial) => trial.persons.reduce((personsInfo, person) => {
        personsInfo['name'] = person.name,
        personsInfo['role'] = person.role ? person.role : "no role defined."
@@ -52,8 +55,8 @@ export const searchDataCleaner = (searchData) => {
     }, {})
 
     export const recordsCleaner = (trial) => trial.records.reduce((recordsInfo, record) => {
-      recordsInfo['source url'] = record.source_url ? record.source_url : 'No trial url available.',
-      recordsInfo['terms and conditions'] = trial.terms_and_conditions_url ? trial.terms_and_conditions_url : 'No terms and conditions available.'
+      recordsInfo['source_url'] = record.source_url ? record.source_url : 'No trial url available.',
+      recordsInfo['terms_and_conditions'] = trial.terms_and_conditions_url ? trial.terms_and_conditions_url : 'No terms and conditions available.'
       return recordsInfo
     }, {})
 
