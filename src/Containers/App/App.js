@@ -54,7 +54,7 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+export const mapDispatchToProps = (dispatch) => {
   return {
     populateSearchData: (cleanSearchData) => dispatch(populateSearchData(cleanSearchData))
   }

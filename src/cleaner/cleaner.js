@@ -1,13 +1,13 @@
 export const searchDataCleaner = (searchData) => {
   return searchData.map(trial => {
     return {
+        condtions: conditionsInfo(trial),
         public_title: trial.public_title,
-        interventions: interventionsCleaner(trial),
         brief_summary: trial.brief_summary,
-        // max_age: trial.age_range.max_age ? trial.age_range.max_age : 'No max age provided.',
-        // min_age: trial.age_range.min_age ? trial.age_range.min_age : 'No min age provided.',
-        target_sample_size: trial.target_sample_size,
+        interventions: interventionsCleaner(trial),
+        age_range: trial.age_range ? trial.age_range: 'No max age provided.',
         gender: trial.gender,
+        target_sample_size: trial.target_sample_size,
         registration_date: trial.registration_date,
         completion_date: trial.completion_date ? trial.completion_date : 'Completion date not available.',
         status: trial.status ? trial.status : 'Trail status not available.',
@@ -15,7 +15,6 @@ export const searchDataCleaner = (searchData) => {
         locations: locationsInfo(trial),
         persons: personsInfo(trial),
         oraganisations: organisationsInfo(trial),
-        condtions: conditionsInfo(trial),
         source_name: trial.source.name ? trial.source.name : 'No source name is available.',
         source_url: recordsCleaner(trial)
 

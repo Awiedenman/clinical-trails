@@ -18,7 +18,7 @@ const CardContainer =({ searchData }) => {
   )
 }
 
-const mapStateToProps =(state) => {
+export const mapStateToProps =(state) => {
   return { searchData: state.searchData }
 }
 
