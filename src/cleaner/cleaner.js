@@ -1,25 +1,23 @@
 export const searchDataCleaner = (searchData) => {
   return searchData.map(trial => {
     return {
+        conditions: conditionsInfo(trial),
         public_title: trial.public_title,
-        interventions: interventionsCleaner(trial),
         brief_summary: trial.brief_summary,
-        // max_age: trial.age_range.max_age ? trial.age_range.max_age : 'No max age provided.',
-        // min_age: trial.age_range.min_age ? trial.age_range.min_age : 'No min age provided.',
-        target_sample_size: trial.target_sample_size,
-        gender: trial.gender,
-        registration_date: trial.registration_date,
+        interventions: interventionsCleaner(trial),
+        // age_range: trial.age_range ? trial.age_range: 'No max age provided.',
+        // min_age_range: trial.age_range.min_age ? trial.age_range.min_age : 'No min age provided.',
+        gender: trial.gender ? trial.gender : 'No gender specifications provided for this trial.',
+        target_sample_size: trial.target_sample_size ? trial.target_sample_size :'No target sample size specified.',
+        registration_date: trial.registration_date ? trial.registration_date : 'No registration date provided.',
         completion_date: trial.completion_date ? trial.completion_date : 'Completion date not available.',
         status: trial.status ? trial.status : 'Trail status not available.',
         recruitment_status: trial.recruitment_status ? trial.recruitment_status : 'Recruitment status not available.',
         locations: locationsInfo(trial),
         persons: personsInfo(trial),
-        oraganisations: organisationsInfo(trial),
-        condtions: conditionsInfo(trial),
+        organisations: organisationsInfo(trial),
         source_name: trial.source.name ? trial.source.name : 'No source name is available.',
-        source_url: recordsCleaner(trial)
-
-
+        source_info: recordsCleaner(trial)
       }
     })
   };
@@ -32,6 +30,10 @@ export const searchDataCleaner = (searchData) => {
      return locationsInfo
    }, {})
     
+    // export const personsInfo = (trial) => trial.persons.map( person => {
+    //   return person.name
+    // })
+
      export const personsInfo = (trial) => trial.persons.reduce((personsInfo, person) => {
        personsInfo['name'] = person.name,
        personsInfo['role'] = person.role ? person.role : "no role defined."
@@ -53,8 +55,8 @@ export const searchDataCleaner = (searchData) => {
     }, {})
 
     export const recordsCleaner = (trial) => trial.records.reduce((recordsInfo, record) => {
-      recordsInfo['source url'] = record.source_url ? record.source_url : 'No trial url available.',
-      recordsInfo['terms and conditions'] = trial.terms_and_conditions_url ? trial.terms_and_conditions_url : 'No terms and conditions available.'
+      recordsInfo['source_url'] = record.source_url ? record.source_url : 'No trial url available.',
+      recordsInfo['terms_and_conditions'] = trial.terms_and_conditions_url ? trial.terms_and_conditions_url : 'No terms and conditions available.'
       return recordsInfo
     }, {})
 

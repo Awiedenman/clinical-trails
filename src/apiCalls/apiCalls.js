@@ -2,13 +2,13 @@ export const searchDataCall = async (condition) => {
   const url = `https://api.opentrials.net/v1/search?q=${ condition }&page=1&per_page=100`;
   // https: //api.opentrials.net/v1/search?q=arthritis&page=1&per_page=100
   try {
-    const rawOpenTrailsData = await fetch(url);
-    if (rawOpenTrailsData.status === 200) {
-      const openTrailsData = await rawOpenTrailsData.json();
-      console.log('open trails', openTrailsData)
-      return openTrailsData;
+    const rawOpenTrialsData = await fetch(url);
+    if (rawOpenTrialsData.status === 200) {
+      const openTrialsData = await rawOpenTrialsData.json();
+      // console.log('open trails', openTrailsData)
+      return openTrialsData;
     } else {
-      throw Error(`Status failure: ${rawOpenTrailsData.status}`)
+      throw Error(`Status failure: ${rawOpenTrialsData.status}`)
     }
   } catch (error) {
     throw Error;

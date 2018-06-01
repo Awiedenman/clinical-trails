@@ -37,16 +37,17 @@ describe('apiCalls', () => {
       expect(window.fetch).toHaveBeenCalledWith(expected);
     })
 
-    // it('returns an error if the status is bad', () => {
-    //   window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-    //     status: 500
-    //   }));
-    //   const expected = Error('Status failure: 500');
-    //   const result =  searchDataCall();
+    it('returns an error if the status is bad', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 500
+      }));
+      const mockCondition = 'breast cancer';
+      const expected = Error('Status failure: 500');
+      const result =  await searchDataCall(mockCondition);
 
-    //   expect(result).rejects.toEqual(expected);
+      expect(result).toEqual(expected);
 
-    // })
+    })
 
   })
 })
